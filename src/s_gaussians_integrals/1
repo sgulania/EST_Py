@@ -1,0 +1,13 @@
+#Module for computing normalization coefficients for an arbitrary
+#uncontracted s-Gaussian
+
+def n_cof(alpha):
+	import math
+	#print math.pi
+	return (math.pi/(2.0*alpha))**(-3.0/4.0)
+
+def overlap(alp1,r1,alp2,r2):
+	import math
+	r12 = float(r1)-float(r2)
+	return n_cof(alp1)*n_cof(alp2)*math.exp(-alp1*alp2/(alp1+alp2)*r12**2)\
+	*(math.pi/(alp1+alp2))**(3.0/2.0)
